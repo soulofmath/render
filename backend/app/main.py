@@ -28,15 +28,21 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Load model dan scaler
+import os
+
+# Tambahkan ini untuk mengambil BASE_DIR = direktori /backend/
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 stunting_model = StuntingPredictor(
-    model_path="../models/model_stunting.h5",
-    scaler_path="../scaler/scaler.pkl"
+    model_path=os.path.join(BASE_DIR, "models", "model_stunting.h5"),
+    scaler_path=os.path.join(BASE_DIR, "scaler", "scaler.pkl")
 )
 
 wasting_model = WastingPredictor(
-    model_path="../models/model_wasting.keras",
-    scaler_path="../scaler/scaler_wt.pkl"
+    model_path=os.path.join(BASE_DIR, "models", "model_wasting.keras"),
+    scaler_path=os.path.join(BASE_DIR, "scaler", "scaler_wt.pkl")
 )
+
 
 # Schema untuk input data
 class InputData(BaseModel):
