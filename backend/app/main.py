@@ -29,13 +29,13 @@ logger = logging.getLogger(__name__)
 
 # Load model dan scaler
 stunting_model = StuntingPredictor(
-    model_path="models/model_stunting.h5",
-    scaler_path="scaler/scaler.pkl"
+    model_path="../models/model_stunting.h5",
+    scaler_path="../scaler/scaler.pkl"
 )
 
 wasting_model = WastingPredictor(
-    model_path="models/model_wasting.keras",
-    scaler_path="scaler/scaler_wt.pkl"
+    model_path="../models/model_wasting.keras",
+    scaler_path="../scaler/scaler_wt.pkl"
 )
 
 # Schema untuk input data
